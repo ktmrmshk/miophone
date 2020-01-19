@@ -137,7 +137,7 @@ class miophone(object):
         for i, k in self.df.iterrows():
             values=list()
             for l in labels:
-                if ' ' in str(k[l]) or str( k[l] ).startswith('0'):
+                if l in ['src', 'dest', 'd_time']:
                     values.append( "'{}'".format( str(k[l]) ))
                 else:
                     values.append( str(k[l]))
