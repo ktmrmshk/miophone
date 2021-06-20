@@ -87,8 +87,8 @@ class miophone(object):
         os.remove(tmp_file)
 
         ### set new data
-        self.df['src'] = df_orig['お客様の電話番号']
-        self.df['dest'] = df_orig['通話先電話番号']
+        self.df['src'] = df_orig['お客様の電話番号'].str.replace('-', '')
+        self.df['dest'] = df_orig['通話先電話番号'].str.replace('-', '')
         self.df['toll'] = df_orig['料金']
         d_time, dur, miophone, familycall = self.scanMioService(df_orig)
         self.df['d_time'] = d_time
